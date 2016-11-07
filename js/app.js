@@ -18,8 +18,7 @@ var plates = [
   "No hay pico y placa"
 ];
 
-jQuery(function($) {
-  var date = new Date();
-  $("#plates").html( plates[ date.getDay() ]);
-  $("#day").html( days[ date.getDay() ]);
-});
+
+var date = new Date();
+document.getElementById("day").innerHTML = days[ date.getDay() ];
+document.getElementById("plates").innerHTML = plates[ date.getDay() ];

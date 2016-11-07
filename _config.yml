@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Pico y Placa Medellín
 email: nhocki@gmail.com
-description: Pico y Placa en Medellín
+description: Pico y Placa en Medellín por días
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://picoyplaca.org" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  nhocki
