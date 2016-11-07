@@ -17,7 +17,7 @@ title: Pico y Placa Medellín
 email: nhocki@gmail.com
 description: Pico y Placa en Medellín
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://picoyplaca.org" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://picoyplaca.org" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  nhocki
 
 # Build settings
