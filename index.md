@@ -16,6 +16,8 @@ layout: default
   <tr><td>Jueves</td> <td> 8 - 9 - 0 - 1 </td></tr>
   <tr><td>Viernes</td> <td> 2 - 3 - 4 - 5</td></tr>
 </table>
+
+<span id='schedule'>7:00AM - 8:00AM &nbsp; & &nbsp; 5:30PM - 7:00PM</span>
 </div>
 
 <style>
@@ -51,10 +53,17 @@ body {
   right: 0;
 }
 
-#full { 
+#full {
   font-size: 0.60em;
   text-align: right;
   margin: 0 auto;
+}
+
+#schedule {
+  display: block;
+  font-size: 0.75em;
+  margin: 2em auto;
+  text-align: center;
 }
 
 #full td {
