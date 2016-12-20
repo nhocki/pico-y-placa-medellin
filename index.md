@@ -17,7 +17,7 @@ layout: default
   <tr><td>Viernes</td> <td> 2 - 3 - 4 - 5</td></tr>
 </table>
 
-<span id='schedule'>7:00AM - 8:00AM &nbsp; & &nbsp; 5:30PM - 7:00PM</span>
+<span id='schedule'>7:00AM - 8:30AM &nbsp; & &nbsp; 5:30PM - 7:00PM</span>
 </div>
 
 <style>
