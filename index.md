@@ -6,15 +6,16 @@ layout: default
 
 <section id="day" class="fit"></section>
 
-<section id="plates" class="fit"></section>
+<section id="car-plates" class="fit"></section>
+<section id="bike-plates" class="fit"></section>
 
 <div id='wrap'>
 <table id="full">
-  <tr><td>Lunes</td> <td>6 - 7 - 8 - 9 </td></tr>
-  <tr><td>Martes</td> <td>0 - 1 - 2 - 3 </td></tr>
-  <tr><td>Miércoles</td> <td> 4 - 5 - 6 - 7 </td></tr>
-  <tr><td>Jueves</td> <td> 8 - 9 - 0 - 1 </td></tr>
-  <tr><td>Viernes</td> <td> 2 - 3 - 4 - 5</td></tr>
+  <tr><td>Lunes</td> <td>6 - 7 - 8 - 9 &nbsp;&nbsp; |&nbsp;&nbsp; 4 - 5</td></tr>
+  <tr><td>Martes</td> <td>0 - 1 - 2 - 3 &nbsp;&nbsp; |&nbsp;&nbsp; 6 - 7</td></tr>
+  <tr><td>Miércoles</td> <td> 4 - 5 - 6 - 7 &nbsp;&nbsp; |&nbsp;&nbsp; 8 - 9</td></tr>
+  <tr><td>Jueves</td> <td> 8 - 9 - 0 - 1 &nbsp;&nbsp; |&nbsp;&nbsp; 0 - 1</td></tr>
+  <tr><td>Viernes</td> <td> 2 - 3 - 4 - 5 &nbsp;&nbsp; |&nbsp;&nbsp; 2 - 3</td></tr>
 </table>
 
 <span id='schedule'>7:00AM - 8:00AM &nbsp; & &nbsp; 5:30PM - 7:00PM</span>
@@ -36,14 +37,14 @@ body {
 .fit {
   display: block;
   width: 80%;
-  font-size: 8vw;
+  font-size: 7vw;
   text-align: center;
   font-weight: 100;
-  margin: 0 auto;
+  margin: 0 auto 0.3em;
 }
 
 #day {
-  margin: 1em auto 1em;
+  margin: 0.5em auto 0.5em;
 }
 
 #wrap {
