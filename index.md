@@ -18,7 +18,7 @@ layout: default
   <tr><td>Viernes</td> <td> 2 - 3 - 4 - 5 &nbsp;&nbsp; |&nbsp;&nbsp; 2 - 3</td></tr>
 </table>
 
-<span id='schedule' class='small'>7:00AM - 8:00AM &nbsp; & &nbsp; 5:30PM - 7:00PM</span>
+<span id='schedule' class='small'>7:00AM - 8:30AM &nbsp; & &nbsp; 5:30PM - 7:00PM</span>
 <a href='https://github.com/nhocki/pico-y-placa-medellin' class='small' target="_blank">
   Este sitio es open source
 </a>
