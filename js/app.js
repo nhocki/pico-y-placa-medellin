@@ -10,21 +10,21 @@ var days = [
 
 var carPlates = [
   "No hay pico y placa",
-  "2 - 3 - 4 - 5",
   "6 - 7 - 8 - 9",
   "0 - 1 - 2 - 3",
   "4 - 5 - 6 - 7",
   "8 - 9 - 0 - 1",
+  "2 - 3 - 4 - 5",
   "No hay pico y placa"
 ];
 
 var bikePlates = [
   "",
-  "2 - 3",
   "4 - 5",
   "6 - 7",
   "8 - 9",
   "0 - 1",
+  "2 - 3",
   ""
 ];
 
