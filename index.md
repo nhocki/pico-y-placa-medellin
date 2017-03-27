@@ -14,7 +14,7 @@ layout: default
 <p class='small'><strong>Alerta Roja! Intente no usar su carro/moto!</strong></p>
 
 <span id='schedule' class='small'>
-  Jueves y Viernes 7:00AM - 7:00PM &nbsp; & &nbsp; Sábado 10:00AM - 4:00PM
+  7:00AM - 7:00PM
 </span>
 
 <a href='https://github.com/nhocki/pico-y-placa-medellin' class='small' target="_blank">
