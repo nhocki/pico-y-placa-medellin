@@ -42,7 +42,7 @@ body {
 .fit {
   display: block;
   width: 80%;
-  font-size: 7vw;
+  font-size: 5vw;
   text-align: center;
   font-weight: 100;
   margin: 0 auto 0.3em;
