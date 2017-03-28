@@ -10,13 +10,17 @@ layout: default
 <section id="bike-plates" class="fit"></section>
 
 <div id='wrap'>
-
 <p class='small'><strong>Alerta Roja! Intente no usar su carro/moto!</strong></p>
 
-<span id='schedule' class='small'>
-  7:00AM - 7:00PM
-</span>
+<table id="full">
+  <tr><td>Lunes</td>      <td>2 - 3 - 4 - 5 &nbsp;&nbsp; |&nbsp;&nbsp; 2 - 3</td></tr>
+  <tr><td>Martes</td>     <td>6 - 7 - 8 - 9 &nbsp;&nbsp; |&nbsp;&nbsp; 4 - 5</td></tr>
+  <tr><td>Miércoles</td>  <td>0 - 1 - 2 - 3 &nbsp;&nbsp; |&nbsp;&nbsp; 6 - 7</td></tr>
+  <tr><td>Jueves</td>     <td>4 - 5 - 6 - 7 &nbsp;&nbsp; |&nbsp;&nbsp; 8 - 9</td></tr>
+  <tr><td>Viernes</td>    <td>8 - 9 - 0 - 1 &nbsp;&nbsp; |&nbsp;&nbsp; 0 - 1</td></tr>
+</table>
 
+<span id='schedule' class='small'>7:00AM - 8:30AM &nbsp; & &nbsp; 5:30PM - 7:00PM</span>
 <a href='https://github.com/nhocki/pico-y-placa-medellin' class='small' target="_blank">
   Este sitio es open source
 </a>
