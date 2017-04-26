@@ -12,7 +12,7 @@ body {
 
 .fit {
   display: block;
-  width: 80%;
+  width: 85%;
   font-size: 3rem;
   text-align: center;
   font-weight: 100;
@@ -24,10 +24,7 @@ body {
 }
 
 #wrap {
-  position: fixed;
-  bottom: 1em;
-  left: 0;
-  right: 0;
+  margin-top: 3em;
 }
 
 #full {
@@ -60,5 +57,11 @@ a:hover {
 @media (min-width: 640px) {
   .fit {
     font-size: 4rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .fit {
+    font-size: 2rem;
   }
 }
