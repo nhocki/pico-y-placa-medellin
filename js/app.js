@@ -3,9 +3,9 @@ var days = [
   "Lunes",
   "Martes",
   "Miércoles",
-  "Jueves ❗️",
-  "Viernes ❗️",
-  "Sábado ❗️"
+  "Jueves",
+  "Viernes",
+  "Sábado"
 ];
 
 var carPlates = [
