@@ -54,6 +54,10 @@ a:hover {
   text-decoration: underline;
 }
 
+strong a, a:hover {
+  font-weight: bolder;
+}
+
 @media (min-width: 640px) {
   .fit {
     font-size: 4rem;
