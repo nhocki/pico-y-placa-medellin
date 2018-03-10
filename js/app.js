@@ -10,21 +10,21 @@ var days = [
 
 var carPlates = [
   "No hay pico y placa",
-  "4 - 5 - 6 - 7 - 8 - 9",
-  "8 - 9 - 0 - 1 - 2 - 3",
-  "2 - 3 - 4 - 5 - 6 - 7",
-  "6 - 7 - 8 - 9 - 0 - 1",
-  "0 - 1 - 2 - 3 - 4 - 5",
+  "4 - 5 - 6 - 7",
+  "8 - 9 - 0 - 1",
+  "2 - 3 - 4 - 5",
+  "6 - 7 - 8 - 9",
+  "0 - 1 - 2 - 3",
   "No hay pico y placa"
 ];
 
 var bikePlates = [
   "",
-  "8 - 9 - 0 - 1 - 2 - 3",
-  "0 - 1 - 2 - 3 - 4 - 5",
-  "2 - 3 - 4 - 5 - 6 - 7",
-  "4 - 5 - 6 - 7 - 8 - 9",
-  "6 - 7 - 8 - 9 - 0 - 1",
+  "8 - 9",
+  "0 - 1",
+  "2 - 3",
+  "4 - 5",
+  "6 - 7",
   ""
 ];
 
@@ -56,6 +56,6 @@ var emergency = function(data, date) {
 }
 
 var date = new Date();
-document.getElementById("day").innerHTML = days[ date.getDay()] + " 🚨";
+document.getElementById("day").innerHTML = days[ date.getDay()];
 document.getElementById("car-plates").innerHTML = "🚗  " + emergency(carPlates,  date);
 document.getElementById("bike-plates").innerHTML = "🏍  " + emergency(bikePlates, date);
