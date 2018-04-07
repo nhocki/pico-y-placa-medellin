@@ -28,8 +28,8 @@ var bikePlates = [
   ""
 ];
 
-var even = [3, 17, 31]
-var odd  = [24, 10, 7]
+var even = [3, 17, 31, 7]
+var odd  = [24, 10]
 
 var emergency = function(data, date) {
   // Emergency is only on Saturdays.
