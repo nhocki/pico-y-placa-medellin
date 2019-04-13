@@ -8,25 +8,37 @@ var days = [
   "Sábado"
 ];
 
-var carPlates = [
-  "No hay pico y placa",
-  "6 - 7 - 8 - 9",
-  "0 - 1 - 2 - 3",
-  "4 - 5 - 6 - 7",
-  "8 - 9 - 0 - 1",
-  "2 - 3 - 4 - 5",
-  "No hay pico y placa"
-];
+var carStep = 4;
+var carNums = 4;
+var carStart = 6;
 
-var bikePlates = [
-  "",
-  "4 - 5",
-  "6 - 7",
-  "8 - 9",
-  "0 - 1",
-  "2 - 3",
-  ""
-];
+var bikeStep = 2;
+var bikeNums = 2;
+var bikeStart = 4;
+
+var carPlates = ["No hay pico y placa"];
+var bikePlates = [""];
+
+for (let day = 0; day < 5; day++) {
+  let cPlates = [];
+  let bPlates = [];
+  let start = ((day * carStep) + carStart) % 10;
+  for (let i = 0; i < carNums; i++) {
+    let num = (start + i) % 10;
+    cPlates.push(num)
+  }
+
+  start = ((day * bikeStep) + bikeStart) % 10;
+  for (let i = 0; i < bikeNums; i++) {
+    let num = (start + i) % 10;
+    bPlates.push(num)
+  }
+  bikePlates.push(bPlates.join(" - "))
+  carPlates.push(cPlates.join(" - "))
+}
+
+carPlates.push("No hay pico y placa");
+bikePlates.push("");
 
 var even = [16, 30]
 var odd = [09, 23]
