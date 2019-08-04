@@ -10,11 +10,11 @@ var days = [
 
 var carStep = 4;
 var carNums = 4;
-var carStart = 6;
+var carStart = 2;
 
 var bikeStep = 2;
 var bikeNums = 2;
-var bikeStart = 4;
+var bikeStart = 2;
 
 var carPlates = ["No hay pico y placa"];
 var bikePlates = [""];
