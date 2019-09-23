@@ -89,8 +89,8 @@
   carPlates.push("No hay pico y placa");
   bikePlates.push("");
 
-  var even = [16, 30]
-  var odd = [09, 23]
+  var even = [5, 19]
+  var odd = [12, 26]
 
   var emergency = function (data, date) {
     // Emergency is only on Saturdays.
@@ -100,7 +100,7 @@
     }
 
     month = date.getMonth()
-    if (month != 2) { // only on march
+    if (month != 9) { // only on october
       return data[day];
     }
 
