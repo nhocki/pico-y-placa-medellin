@@ -58,6 +58,21 @@ strong a, a:hover {
   font-weight: bolder;
 }
 
+#form {
+  display: block;
+  font-size: 1.2em;
+  margin: 2em auto;
+  text-align: center;
+}
+
+#form:before, #form:after {
+  content: "📱";
+}
+
+#form a:hover{
+  font-weight: lighter;
+}
+
 @media (min-width: 640px) {
   .fit {
     font-size: 4rem;
