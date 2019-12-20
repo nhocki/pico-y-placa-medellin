@@ -20,7 +20,6 @@
   <meta property="og:description" content="Información diaria del Pico y Placa en Medellín">
   <meta content="http://www.picoyplaca.org" property="og:url">
   <link rel="source" href="https://github.com/nhocki/pico-y-placa-medellin" title="Source Code">
-  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body id="container">
@@ -132,6 +131,103 @@
   document.getElementById("bike-plates").innerHTML = "🏍  " + emergency(bikePlates, date);
   document.getElementById("full").innerHTML = table;
 </script>
+
+<style>
+  body {
+  font-family: helvetica, arial, sans-serif;
+}
+
+#title{
+  font-weight: lighter;
+  font-size: 1.5em;
+  display: block;
+  text-align: center;
+  margin: 1em auto 0;
+}
+
+.fit {
+  display: block;
+  width: 85%;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 100;
+  margin: 0 auto 0.3em;
+}
+
+#day {
+  margin: 0.5em auto 0.5em;
+}
+
+#wrap {
+  margin-top: 3em;
+}
+
+#full {
+  font-size: 0.60em;
+  text-align: right;
+  margin: 0 auto;
+}
+
+.small {
+  display: block;
+  font-size: 0.75em;
+  margin: 2em auto;
+  text-align: center;
+}
+
+#full td {
+  padding-left: 0.8em;
+}
+
+a, a:active, a:visited, a:hover {
+  color: #00F;
+  text-decoration: none;
+  font-weight: lighter;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong a, a:hover {
+  font-weight: bolder;
+}
+
+#form {
+  display: block;
+  font-size: 1.3em;
+  margin: 2em auto;
+  text-align: center;
+}
+
+#form a:hover{
+  font-weight: lighter;
+}
+
+@media (min-width: 640px) {
+  .fit {
+    font-size: 4rem;
+  }
+
+  #form:before, #form:after {
+    content: "📱";
+  }
+
+  #form:after {
+    margin-left: 1px;
+  }
+}
+
+@media (max-width: 639px) {
+  .fit {
+    font-size: 2rem;
+  }
+
+  #form {
+    font-size: 1.0em;
+  }
+}
+</style>
 
 <script type="text/javascript">
   var _gauges = _gauges || [];
