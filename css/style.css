@@ -60,13 +60,9 @@ strong a, a:hover {
 
 #form {
   display: block;
-  font-size: 1.2em;
+  font-size: 1.3em;
   margin: 2em auto;
   text-align: center;
-}
-
-#form:before, #form:after {
-  content: "📱";
 }
 
 #form a:hover{
@@ -77,10 +73,22 @@ strong a, a:hover {
   .fit {
     font-size: 4rem;
   }
+
+  #form:before, #form:after {
+    content: "📱";
+  }
+
+  #form:after {
+    margin-left: 1px;
+  }
 }
 
 @media (max-width: 639px) {
   .fit {
     font-size: 2rem;
+  }
+
+  #form {
+    font-size: 1.0em;
   }
 }
