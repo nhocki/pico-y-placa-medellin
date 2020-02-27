@@ -32,13 +32,18 @@
   </a>
 </div>
 
-<section id="day" class="fit"></section>
-<section id="car-plates" class="fit"></section>
-<section id="bike-plates" class="fit"></section>
+<section class="fit">Estado de Alerta</section>
+
+<table id="alert" class="alert" align="center">
+  <tr><td>Feb 28 - Marzo 1</td><td>Carros</td> <td>Motos</td></tr>
+  <tr><td>Viernes</td> <td>4 - 5 - 6 - 7 - 8 - 9</td> <td>8 - 9 - 0 - 1 - 2 - 3</td></tr>
+  <tr><td>Sábado</td> <td>0 - 2 - 4 - 6 - 8</td> <td>0 - 2 - 4 - 6 - 8</td></tr>
+  <tr><td>Domingo</td> <td>1 - 3 - 5 - 7 - 9</td> <td>1 - 3 - 5 - 7 - 9</td></tr>
+</table>
+
+<section class="fit">5:00AM - 10:00AM &nbsp; & &nbsp; 4:00PM - 8:00PM</section>
 
 <div id='wrap'>
-  <table id="full"></table>
-  <span id='schedule' class='small'>7:00AM - 08:30AM &nbsp; & &nbsp; 5:30PM - 7:00PM</span>
   <a href='https://github.com/nhocki/pico-y-placa-medellin' class='small' target="_blank">
     Este sitio es open source
   </a>
@@ -137,6 +142,20 @@
   font-family: helvetica, arial, sans-serif;
 }
 
+#alert{
+  padding-top: 2em;
+  text-align: center;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 100;
+  border-collapse: collapse;
+}
+
+#alert td{ 
+  padding: 0.5em 0.3em;
+  border: 1px solid black;
+}
+
 #title{
   font-weight: lighter;
   font-size: 1.5em;
@@ -151,7 +170,7 @@
   font-size: 3rem;
   text-align: center;
   font-weight: 100;
-  margin: 0 auto 0.3em;
+  margin: 1em auto 0.3em;
 }
 
 #day {
