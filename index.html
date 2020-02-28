@@ -34,7 +34,7 @@
 
 <section class="fit">Estado de Alerta</section>
 
-<table id="alert" class="alert" align="center">
+<table id="alerta">
   <tr><td>Feb 28 - Marzo 1</td><td>Carros</td> <td>Motos</td></tr>
   <tr><td>Viernes</td> <td>4 - 5 - 6 - 7 - 8 - 9</td> <td>8 - 9 - 0 - 1 - 2 - 3</td></tr>
   <tr><td>Sábado</td> <td>0 - 2 - 4 - 6 - 8</td> <td>0 - 2 - 4 - 6 - 8</td></tr>
@@ -55,94 +55,14 @@
   </p>
 </div>
 
-<script type="text/javascript" >
-  var days = [
-    "Domingo",
-    "Lunes",
-    "Martes",
-    "Miércoles",
-    "Jueves",
-    "Viernes",
-    "Sábado"
-  ];
-
-  var carStep = 4;
-  var carNums = 4;
-  var carStart = 8;
-
-  var bikeStep = 2;
-  var bikeNums = 2;
-  var bikeStart = 0;
-
-  var carPlates = ["No hay pico y placa"];
-  var bikePlates = [""];
-
-  for (let day = 0; day < 5; day++) {
-    let cPlates = [];
-    let bPlates = [];
-    let start = ((day * carStep) + carStart) % 10;
-    for (let i = 0; i < carNums; i++) {
-      let num = (start + i) % 10;
-      cPlates.push(num)
-    }
-
-    start = ((day * bikeStep) + bikeStart) % 10;
-    for (let i = 0; i < bikeNums; i++) {
-      let num = (start + i) % 10;
-      bPlates.push(num)
-    }
-    bikePlates.push(bPlates.join(" - "))
-    carPlates.push(cPlates.join(" - "))
-  }
-
-  carPlates.push("No hay pico y placa");
-  bikePlates.push("");
-
-  var even = [5, 19]
-  var odd = [12, 26]
-
-  var emergency = function (data, date) {
-    // Emergency is only on Saturdays.
-    day = date.getDay()
-    if (day != 6) {
-      return data[day];
-    }
-
-    month = date.getMonth()
-    if (month != 9) { // only on october
-      return data[day];
-    }
-
-    monthDay = date.getDate()
-    if (even.includes(monthDay)) {
-      return "0 - 2 - 4 - 6 - 8"
-    }
-
-    if (odd.includes(monthDay)) {
-      return "1 - 3 - 5 - 7 - 9"
-    }
-
-    return data[day];
-  }
-
-  var date = new Date();
-  var table = ""
-  for (var i = 1; i <= 5; i++) {
-    table += `<tr><td>${days[i]}</td><td>${carPlates[i]} &nbsp;&nbsp; |&nbsp;&nbsp; ${bikePlates[i]}</td></tr>`
-  }
-
-  document.getElementById("day").innerHTML = days[date.getDay()];
-  document.getElementById("car-plates").innerHTML = "🚗  " + emergency(carPlates, date);
-  document.getElementById("bike-plates").innerHTML = "🏍  " + emergency(bikePlates, date);
-  document.getElementById("full").innerHTML = table;
-</script>
-
 <style>
   body {
   font-family: helvetica, arial, sans-serif;
 }
 
-#alert{
+#alerta{
+  max-width: 90%;
+  margin: 0 auto;
   padding-top: 2em;
   text-align: center;
   font-size: 2.5rem;
@@ -151,7 +71,7 @@
   border-collapse: collapse;
 }
 
-#alert td{ 
+#alerta td{ 
   padding: 0.5em 0.3em;
   border: 1px solid black;
 }
@@ -235,6 +155,19 @@ strong a, a:hover {
   #form:after {
     margin-left: 1px;
   }
+
+  #alerta{
+    text-align: center;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 100;
+    border-collapse: collapse;
+  }
+
+  #alerta td{ 
+    padding: 0.2em 0.4em;
+    border: 1px solid black;
+  }
 }
 
 @media (max-width: 639px) {
@@ -245,6 +178,20 @@ strong a, a:hover {
   #form {
     font-size: 1.0em;
   }
+
+  #alerta{
+    text-align: center;
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 100;
+    border-collapse: collapse;
+  }
+
+  #alerta td{ 
+    padding: 0.2em 0.2em;
+    border: 1px solid black;
+  }
+
 }
 </style>
 
