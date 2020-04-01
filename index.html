@@ -24,13 +24,7 @@
 
 <body id="container">
 
-<h1 id="title"> Pico y Placa Medellín</h1>
-
-<div id="form">
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOiMNQ7oX1O4QySFOL1mS44Idg4-zykhQrcX7qaY7rEPxQjA/viewform" target="_blank">
-    Recibe un SMS cuando tengas pico y placa
-  </a>
-</div>
+<h1 id="title"> Pico y <s>Placa</s> Cédula Medellín</h1>
 
 <p id="aire">
   <a href="http://www.airemedellin.com/" target="_blank">
@@ -38,13 +32,19 @@
   </a>
 </p>
 
+<p class="centered">Estamos en cuarentena nacional. No salgas si no es necesario!</p>
 <section id="day" class="fit"></section>
 <section id="car-plates" class="fit"></section>
-<section id="bike-plates" class="fit"></section>
 
 <div id='wrap'>
   <table id="full"></table>
-  <span id='schedule' class='small'>7:00AM - 08:30AM &nbsp; & &nbsp; 5:30PM - 7:00PM</span>
+
+  <div id="form">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOiMNQ7oX1O4QySFOL1mS44Idg4-zykhQrcX7qaY7rEPxQjA/viewform" target="_blank">
+      Recibe un SMS cuando tengas pico y placa
+    </a>
+  </div>
+
   <a href='https://github.com/nhocki/pico-y-placa-medellin' class='small' target="_blank">
     Este sitio es open source
   </a>
@@ -61,18 +61,18 @@
     "Sábado"
   ];
 
-  var carStep = 4;
-  var carNums = 4;
-  var carStart = 8;
+  var carStep = 3;
+  var carNums = 3;
+  var carStart = 1;
 
   var bikeStep = 2;
   var bikeNums = 2;
   var bikeStart = 0;
 
-  var carPlates = ["No hay pico y placa"];
+  var carPlates = ["9 - 0"];
   var bikePlates = [""];
 
-  for (let day = 0; day < 5; day++) {
+  for (let day = 0; day < 6; day++) {
     let cPlates = [];
     let bPlates = [];
     let start = ((day * carStep) + carStart) % 10;
@@ -90,7 +90,6 @@
     carPlates.push(cPlates.join(" - "))
   }
 
-  carPlates.push("No hay pico y placa");
   bikePlates.push("");
 
   var even = [5, 19]
@@ -122,13 +121,12 @@
 
   var date = new Date();
   var table = ""
-  for (var i = 1; i <= 5; i++) {
-    table += `<tr><td>${days[i]}</td><td>${carPlates[i]} &nbsp;&nbsp; |&nbsp;&nbsp; ${bikePlates[i]}</td></tr>`
+  for (var i = 0; i <= 6; i++) {
+    table += `<tr><td>${days[i]}</td><td>${carPlates[i]}</td></tr>`
   }
 
   document.getElementById("day").innerHTML = days[date.getDay()];
-  document.getElementById("car-plates").innerHTML = "🚗  " + emergency(carPlates, date);
-  document.getElementById("bike-plates").innerHTML = "🏍  " + emergency(bikePlates, date);
+  document.getElementById("car-plates").innerHTML = "🛒  " + emergency(carPlates, date) + "  🛒";
   document.getElementById("full").innerHTML = table;
 </script>
 
@@ -175,6 +173,13 @@
 .small {
   display: block;
   font-size: 0.75em;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.centered {
+  display: block;
+  font-size: 1.2em;
   margin: 2em auto;
   text-align: center;
 }
