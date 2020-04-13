@@ -34,10 +34,11 @@
 
 <p class="centered">Estamos en cuarentena nacional. ¡No salgas si no es necesario!</p>
 <section id="day" class="fit"></section>
+<section id="bike-plates" class="fit"></section>
 <section id="car-plates" class="fit"></section>
 
 <div id='wrap'>
-  <table id="full"></table>
+  <table id="full" border=1></table>
   <span id='schedule' class='small'>7:00AM - 08:00PM</span>
   <div id="form">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOiMNQ7oX1O4QySFOL1mS44Idg4-zykhQrcX7qaY7rEPxQjA/viewform" target="_blank">
@@ -52,13 +53,23 @@
 
 <script type="text/javascript" >
   var days = [
-    "Domingo",
-    "Lunes",
-    "Martes",
-    "Miércoles",
-    "Jueves",
-    "Viernes",
-    "Sábado"
+    "Domingo 12 de Abril",
+    "Lunes 13 de Abril",
+    "Martes 14 de Abril",
+    "Miércoles 15 de Abril",
+    "Jueves 16 de Abril",
+    "Viernes 17 de Abril",
+    "Sábado 18 de Abril",
+
+    "Domingo 19 de Abril",
+    "Lunes 20 de Abril",
+    "Martes 21 de Abril",
+    "Miércoles 22 de Abril",
+    "Jueves 23 de Abril",
+    "Viernes 24 de Abril",
+    "Sábado 25 de Abril",
+
+    "Domingo 26 de Abril"
   ];
 
   var carStep = 3;
@@ -70,9 +81,12 @@
   var bikeStart = 0;
 
   var carPlates = ["9 - 0"];
-  var bikePlates = [""];
+  var bikePlates = [
+    "9 - 0",
+    "7 - 8 - 9",
+  ];
 
-  for (let day = 0; day < 6; day++) {
+  for (let day = 0; day < days.length; day++) {
     let cPlates = [];
     let bPlates = [];
     let start = ((day * carStep) + carStart) % 10;
@@ -90,8 +104,7 @@
     carPlates.push(cPlates.join(" - "))
   }
 
-  bikePlates.push("");
-
+  bikePlates[bikePlates.length - 3] = "4 - 5 - 6"
   var even = [5, 19]
   var odd = [12, 26]
 
@@ -120,13 +133,14 @@
   }
 
   var date = new Date();
-  var table = ""
-  for (var i = 0; i <= 6; i++) {
-    table += `<tr><td>${days[i]}</td><td>${carPlates[i]}</td></tr>`
+  var table = "<tr><th></th><th>Medellín</th><th>Envigado</th></tr>"
+  for (var i = 0; i <= days.length - 1; i++) {
+    table += `<tr><td>${days[i]}</td><td>${bikePlates[i]}</td><td>${carPlates[i]}</td></tr>`
   }
 
   document.getElementById("day").innerHTML = days[date.getDay()];
-  document.getElementById("car-plates").innerHTML = "🛒  " + emergency(carPlates, date) + "  🛒";
+  document.getElementById("car-plates").innerHTML = "🛒  ENV: " + emergency(carPlates, date) + "  🛒";
+  document.getElementById("bike-plates").innerHTML = "🛒  MDE: " + emergency(bikePlates, date) + "  🛒";
   document.getElementById("full").innerHTML = table;
 </script>
 
