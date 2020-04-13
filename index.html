@@ -137,7 +137,7 @@
   }
 
   var date = new Date();
-  var table = "<tr><th></th><th>Medellín (AMVA)</th><th>Envigado</th></tr>"
+  var table = "<tr><th></th><th>MDE (AMVA)</th><th>Envigado</th></tr>"
   for (var i = 0; i <= days.length - 1; i++) {
     table += `<tr><td>${days[i]}</td><td>${bikePlates[i]}</td><td>${carPlates[i]}</td></tr>`
   }
@@ -259,7 +259,6 @@ strong a, a:hover {
   #full td, #full th {
     padding: 0;
     padding-left: 1.2em;
-    line-height: 1.5em;
   }
 
 }
@@ -273,10 +272,9 @@ strong a, a:hover {
     font-size: 1.0em;
   }
 
-  #full td, #full th{
-    padding: 0;
-    padding-left: 1.2em;
-    line-height: 1.2em;
+  #full td, #full th {
+    /* font-size: 1em; */
+    padding-left: 1em;
   }
 }
 </style>
