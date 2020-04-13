@@ -37,6 +37,10 @@
 <section id="bike-plates" class="fit"></section>
 <section id="car-plates" class="fit"></section>
 
+<a href='https://twitter.com/braulioEMarquez/status/1249540593417695233' class='small' target="_blank">
+  Envigado es diferente.
+</a>
+
 <div id='wrap'>
   <table id="full"></table>
   <span id='schedule' class='small'>7:00AM - 08:00PM</span>
@@ -53,23 +57,23 @@
 
 <script type="text/javascript" >
   var days = [
-    "Domingo 12 de Abril",
-    "Lunes 13 de Abril",
-    "Martes 14 de Abril",
-    "Miércoles 15 de Abril",
-    "Jueves 16 de Abril",
-    "Viernes 17 de Abril",
-    "Sábado 18 de Abril",
+    "Dom. 12 de Abril",
+    "Lun. 13 de Abril",
+    "Mar. 14 de Abril",
+    "Mié. 15 de Abril",
+    "Jue. 16 de Abril",
+    "Vie. 17 de Abril",
+    "Sáb. 18 de Abril",
 
-    "Domingo 19 de Abril",
-    "Lunes 20 de Abril",
-    "Martes 21 de Abril",
-    "Miércoles 22 de Abril",
-    "Jueves 23 de Abril",
-    "Viernes 24 de Abril",
-    "Sábado 25 de Abril",
+    "Dom. 19 de Abril",
+    "Lun. 20 de Abril",
+    "Mar. 21 de Abril",
+    "Mié. 22 de Abril",
+    "Jue. 23 de Abril",
+    "Vie. 24 de Abril",
+    "Sáb. 25 de Abril",
 
-    "Domingo 26 de Abril"
+    "Dom. 26 de Abril"
   ];
 
   var carStep = 3;
@@ -204,9 +208,9 @@
   font-weight: 100;
 }
 
-#full td, th {
-  padding-left: 1.2em;
-  line-height: 1.5em;
+#full td, #full th {
+  line-height: 2em;
+  padding-left: 0.2em 0 0.2em 1.2em;
 }
 
 #full tr:nth-child(even) {
@@ -251,6 +255,13 @@ strong a, a:hover {
   #form:after {
     margin-left: 1px;
   }
+
+  #full td, #full th {
+    padding: 0;
+    padding-left: 1.2em;
+    line-height: 1.5em;
+  }
+
 }
 
 @media (max-width: 639px) {
@@ -260,6 +271,12 @@ strong a, a:hover {
 
   #form {
     font-size: 1.0em;
+  }
+
+  #full td, #full th{
+    padding: 0;
+    padding-left: 1.2em;
+    line-height: 1.2em;
   }
 }
 </style>
