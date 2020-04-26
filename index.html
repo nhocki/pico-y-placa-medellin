@@ -37,13 +37,8 @@
 <section id="bike-plates" class="fit"></section>
 <section id="car-plates" class="fit"></section>
 
-<a href='https://twitter.com/braulioEMarquez/status/1249540593417695233' class='small' target="_blank">
-  Envigado es diferente.
-</a>
-
 <div id='wrap'>
   <table id="full"></table>
-  <span id='schedule' class='small'>7:00AM - 08:00PM</span>
   <div id="form">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOiMNQ7oX1O4QySFOL1mS44Idg4-zykhQrcX7qaY7rEPxQjA/viewform" target="_blank">
       Recibe un SMS cuando tengas pico y placa
@@ -57,71 +52,38 @@
 
 <script type="text/javascript" >
   var days = [
-    "Dom. 19 de Abril",
-    "Lun. 20 de Abril",
-    "Mar. 21 de Abril",
-    "Mié. 22 de Abril",
-    "Jue. 23 de Abril",
-    "Vie. 24 de Abril",
-    "Sáb. 25 de Abril",
+    "",
 
-    "Dom. 26 de Abril"
+    "Lun. 27 de Abril",
+    "Mar. 28 de Abril",
+    "Mié. 29 de Abril",
+    "Jue. 30 de Abril",
+    "Vie. 1 de Mayo",
+    "Sáb. 2 de Mayo",
+    "Dom. 3 de Mayo",
+
+    "Lun. 4 de Mayo",
+    "Mar. 5 de Mayo",
+    "Mié. 6 de Mayo",
+    "Jue. 7 de Mayo",
+    "Vie. 8 de Mayo",
+    "Sáb. 9 de Mayo",
+    "Dom. 10 de Mayo"
   ];
 
-  var carStep = 3;
-  var carNums = 3;
-  var carStart = 1;
 
-  var bikeStep = 2;
-  var bikeNums = 2;
-  var bikeStart = 0;
+  var carPlates = [ [] ];
+  var firstNum = 7;
 
-  var carPlates = [
-    "9 - 0",
-    "1 - 2 - 3",
-    "4 - 5 - 6",
-    "7 - 8 - 9",
-    "0 - 1 - 2",
-    "3 - 4 - 5",
-    "6 - 7 - 8",
-    "9 - 0",
-    "1 - 2 - 3",
-    "4 - 5 - 6",
-    "7 - 8 - 9",
-    "0 - 1 - 2",
-    "3 - 4 - 5",
-    "6 - 7 - 8",
-    "9 - 0",
-    "1 - 2 - 3",
-    "4 - 5 - 6",
-    "7 - 8 - 9",
-    "0 - 1 - 2",
-    "3 - 4 - 5",
-    "6 - 7 - 8",
-  ];
-  var bikePlates = [];
-
-  for (let day = 0; day < days.length; day++) {
-    let cPlates = [];
-    let bPlates = [];
-    let start = ((day * carStep) + carStart) % 10;
-    for (let i = 0; i < carNums; i++) {
-      let num = (start + i) % 10;
-      cPlates.push(num)
+  for (let day = 1; day < days.length; day++) {
+    var numsDay = [firstNum % 10, (firstNum + 1) % 10]
+    if (day % 7 == 0) {
+      numsDay.push((firstNum + 2) % 10)
+      firstNum++;
     }
-
-    start = ((day * bikeStep) + bikeStart) % 10;
-    for (let i = 0; i < bikeNums; i++) {
-      let num = (start + i) % 10;
-      bPlates.push(num)
-    }
-    bikePlates.push(bPlates.join(" - "))
-    // carPlates.push(cPlates.join(" - "))
+    firstNum += 2;
+    carPlates.push(numsDay.join(" - "))
   }
-
-  bikePlates[bikePlates.length - 1] = "4 - 5 - 6"
-  var even = [5, 19]
-  var odd = [12, 26]
 
   var emergency = function (data, date) {
     // Emergency is only on Saturdays.
@@ -148,14 +110,14 @@
   }
 
   var date = new Date();
-  var table = "<tr><th></th><th>MDE (AMVA)</th><th>Envigado</th></tr>"
+  var table = ""
+  // <tr><th></th><th>MDE (AMVA)</th><th>Envigado</th></tr>
   for (var i = 0; i <= days.length - 1; i++) {
-    table += `<tr><td>${days[i]}</td><td>${bikePlates[i]}</td><td>${carPlates[i]}</td></tr>`
+    table += `<tr><td>${days[i]}</td><td>${carPlates[i]}</td></tr>`
   }
 
   document.getElementById("day").innerHTML = days[date.getDay()];
-  document.getElementById("car-plates").innerHTML = "🛒  ENV: " + emergency(carPlates, date) + "  🛒";
-  document.getElementById("bike-plates").innerHTML = "🛒  AMVA: " + emergency(bikePlates, date) + "  🛒";
+  document.getElementById("car-plates").innerHTML = "🛒  " + emergency(carPlates, date) + "  🛒";
   document.getElementById("full").innerHTML = table;
 </script>
 
