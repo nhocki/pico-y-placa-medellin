@@ -52,14 +52,6 @@
 
 <script type="text/javascript" >
   var days = [
-    "",
-
-    "Lun. 27 de Abril",
-    "Mar. 28 de Abril",
-    "Mié. 29 de Abril",
-    "Jue. 30 de Abril",
-    "Vie. 1 de Mayo",
-    "Sáb. 2 de Mayo",
     "Dom. 3 de Mayo",
 
     "Lun. 4 de Mayo",
@@ -72,10 +64,10 @@
   ];
 
 
-  var carPlates = [ [] ];
-  var firstNum = 7;
+  var carPlates = [ ];
+  var firstNum = 9;
 
-  for (let day = 1; day < days.length; day++) {
+  for (let day = 0; day < days.length; day++) {
     var numsDay = [firstNum % 10, (firstNum + 1) % 10]
     if (day % 7 == 0) {
       numsDay.push((firstNum + 2) % 10)
