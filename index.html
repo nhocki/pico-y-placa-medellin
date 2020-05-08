@@ -20,25 +20,31 @@
   <meta property="og:description" content="Información diaria del Pico y Cédula en Medellín">
   <meta content="http://www.picoyplaca.org" property="og:url">
   <link rel="source" href="https://github.com/nhocki/pico-y-placa-medellin" title="Source Code">
+
+  <link rel="stylesheet" href="./css/estilos.css">
+
 </head>
 
 <body id="container">
 
-<h1 id="title"> Pico y <s>Placa</s> Cédula Medellín</h1>
-
-<p id="aire">
-  <a href="http://www.airemedellin.com/" target="_blank">
-    Ver la calidad del aire en Medellín
-  </a>
-</p>
-
-<p class="centered">Estamos en cuarentena nacional. ¡No salgas si no es necesario!</p>
-<section id="day" class="fit"></section>
-<section id="bike-plates" class="fit"></section>
-<section id="car-plates" class="fit"></section>
+<header>
+  <nav>
+    <h1 id="title"> Pico y <s>Placa</s> Cédula Medellín <span><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F--61J3o-rTH4%2FTlwQSAlryQI%2FAAAAAAAAABA%2Fa2XliSSCbU8%2Fs1600%2FBANDERA.png&f=1&nofb=1" alt="Medellin" class="Medellin"></span> </h1>
+    <p id="aire">
+      <a href="http://www.airemedellin.com/" target="_blank">
+        Ver la calidad del aire en Medellín
+      </a>
+    </p>
+  </nav>
+  <p class="centered">Estamos en cuarentena nacional. ¡No salgas si no es necesario!</p>
+</header>
+  <section id="day" class="fit"></section>
+  <section id="bike-plates" class="fit"></section>
+  <section id="car-plates" class="fit"></section>
 
 <div id='wrap'>
   <table id="full"></table>
+  <footer>
   <div id="form">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOiMNQ7oX1O4QySFOL1mS44Idg4-zykhQrcX7qaY7rEPxQjA/viewform" target="_blank">
       Recibe un SMS cuando tengas pico y placa
@@ -46,8 +52,11 @@
   </div>
 
   <a href='https://github.com/nhocki/pico-y-placa-medellin' class='small' target="_blank">
-    Este sitio es open source
-  </a>
+    <p>Este sitio es open source</p>
+    <span><img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/64/social_media_logo_github-512.png" alt="GitHub">
+    </span>
+    </a>
+</footer>
 </div>
 
 <script type="text/javascript" >
@@ -128,137 +137,6 @@
   document.getElementById("car-plates").innerHTML = "🛒  " + emergency(carPlates, date) + "  🛒";
   document.getElementById("full").innerHTML = table;
 </script>
-
-<style>
-  body {
-  font-family: helvetica, arial, sans-serif;
-}
-
-#title{
-  font-weight: lighter;
-  font-size: 1.5em;
-  display: block;
-  text-align: center;
-  margin: 1em auto 0;
-}
-
-.fit {
-  display: block;
-  width: 85%;
-  font-size: 3rem;
-  text-align: center;
-  font-weight: 100;
-  margin: 0 auto 0.3em;
-}
-
-#day {
-  margin: 0.5em auto 0.5em;
-}
-
-#wrap {
-  margin-top: 3em;
-}
-
-#aire {
-  text-align: center;
-}
-
-#full {
-  font-size: 0.60em;
-  text-align: right;
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-
-.small {
-  display: block;
-  font-size: 0.75em;
-  margin: 2em auto;
-  text-align: center;
-}
-
-.centered {
-  display: block;
-  font-size: 1.2em;
-  margin: 2em auto;
-  text-align: center;
-}
-
-#schedule, #full {
-  font-size: 1em;
-  font-weight: 100;
-}
-
-#full td, #full th {
-  line-height: 2em;
-  padding-left: 0.2em 0 0.2em 1.2em;
-}
-
-#full tr:nth-child(even) {
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #DDD;
-}
-
-a, a:active, a:visited, a:hover {
-  color: #00F;
-  text-decoration: none;
-  font-weight: lighter;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-strong a, a:hover {
-  font-weight: bolder;
-}
-
-#form {
-  display: block;
-  font-size: 1.3em;
-  margin: 2em auto;
-  text-align: center;
-}
-
-#form a:hover{
-  font-weight: lighter;
-}
-
-@media (min-width: 640px) {
-  .fit {
-    font-size: 4rem;
-  }
-
-  #form:before, #form:after {
-    content: "📱";
-  }
-
-  #form:after {
-    margin-left: 1px;
-  }
-
-  #full td, #full th {
-    padding: 0;
-    padding-left: 1.2em;
-  }
-
-}
-
-@media (max-width: 639px) {
-  .fit {
-    font-size: 2rem;
-  }
-
-  #form {
-    font-size: 1.0em;
-  }
-
-  #full td, #full th {
-    /* font-size: 1em; */
-    padding-left: 1em;
-  }
-}
-</style>
 
 <script type="text/javascript">
   var _gauges = _gauges || [];
