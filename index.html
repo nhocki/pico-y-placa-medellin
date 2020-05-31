@@ -52,32 +52,39 @@
 
 <script type="text/javascript" >
   var days = [
-    "Dom. 24 de Mayo",
-
-    
-    "Lun. 25 de Mayo",
-    "Mar. 26 de Mayo",
-    "Mié. 27 de Mayo",
-    "Jue. 28 de Mayo",
-    "Vie. 29 de Mayo",
-    "Sáb. 30 de Mayo",
-    
     "Dom. 31 de Mayo",
+
+    "Lun. 01 de Junio",
+    "Mar. 02 de Junio",
+    "Mié. 03 de Junio",
+    "Jue. 04 de Junio",
+    "Vie. 05 de Junio",
+    "Sáb. 06 de Junio",
+    "Dom. 07 de Junio",
   ];
 
 
-  var carPlates = [ ];
-  var firstNum = 4;
+  var carPlates = [
+    "9 - 0 - 1",
+    "0 - 2 - 4 - 6 - 8",
+    "1 - 3 - 5 - 7 - 9",
+    "0 - 2 - 4 - 6 - 8",
+    "1 - 3 - 5 - 7 - 9",
+    "0 - 2 - 4 - 6 - 8",
+    "1 - 3 - 5 - 7 - 9",
+    "0 - 2 - 4 - 6 - 8",
+  ];
+  var firstNum = 9;
 
-  for (let day = 0; day < days.length; day++) {
-    var numsDay = [firstNum % 10, (firstNum + 1) % 10]
-    if (day % 7 == 0) {
-      numsDay.push((firstNum + 2) % 10)
-      firstNum++;
-    }
-    firstNum += 2;
-    carPlates.push(numsDay.join(" - "))
-  }
+  // for (let day = 0; day < days.length; day++) {
+  //   var numsDay = [firstNum % 10, (firstNum + 1) % 10]
+  //   if (day % 7 == 0) {
+  //     numsDay.push((firstNum + 2) % 10)
+  //     firstNum++;
+  //   }
+  //   firstNum += 2;
+  //   carPlates.push(numsDay.join(" - "))
+  // }
 
   var emergency = function (data, date) {
     // Emergency is only on Saturdays.
