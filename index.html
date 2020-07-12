@@ -110,7 +110,6 @@
   var init = (today.getDay() == 0 ? 0 : 1)
   for (var i = init; i < week.length; i++) {
     let date = week[i]
-    console.log(isoDate(date))
     table += `<tr><td>${fmt(date)}</td><td>${override[isoDate(date)]}</td></tr>`
   }
 
