@@ -66,10 +66,10 @@
     return date.toLocaleString("es",{weekday: "short", day: "2-digit", month: "long"})
   }
 
-  var buildWeek = function(today, extraSunday = true) {
+  var buildWeek = function(today, weeks, extraSunday = true) {
     let sunday = beginningOfWeek(today)
     let week = [ ]
-    let end = 7 + extraSunday
+    let end = (7 * weeks) + extraSunday
     for (let day = 0; day < end; day++) {
       let cp = new Date(sunday)
       var d = new Date(cp.setDate(cp.getDate() + day))
@@ -133,12 +133,14 @@
   }
 
   var today = new Date();
-  var week = buildWeek(today, true);
+  var week = buildWeek(today, 2, true);
   var table = ""
   var init = (today.getDay() == 0 ? 0 : 1)
   for (var i = init; i < week.length; i++) {
     let date = week[i]
-    table += `<tr><td>${fmt(date)}</td><td>${override[isoDate(date)]}</td></tr>`
+    if (override[isoDate(date)] !== undefined) {
+      table += `<tr><td>${fmt(date)}</td><td>${override[isoDate(date)]}</td></tr>`
+    }
   }
 
   document.getElementById("day").innerHTML = fmt(today);
