@@ -128,7 +128,8 @@
 
               if (
                 nextDate[digit] == undefined &&
-                (startDate.getTime() > today.getTime() || isoDate(startDate) == isoDate(tomorrow))
+                isoDate(startDate) != isoDate(today) &&
+                startDate.getTime() > today.getTime()
               ) {
                 nextDate[digit] = isoDate(startDate);
               }
