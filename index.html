@@ -107,6 +107,11 @@
         var digitsIterator = 0
         var schedule = {};
         var digitSchedule = {};
+        var nextDate = {};
+        const today = new Date();
+        let tomorrow = new Date()
+        tomorrow.setDate(today.getDate() + 1);
+        tomorrow.setUTCHours(6);
 
         var digits = [
           0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -117,21 +122,28 @@
           if (startDate.getDay() != 0 && startDate.getDay() != 6) {
             let digit = digits[digitsIterator];
             if (!Holidays.has(isoDate(startDate))) {
-              console.log(`Adding ${startDate} = ${digit}`);
               schedule[isoDate(startDate)] = digit;
               digitSchedule[digit] = digitSchedule[digit] || [];
               digitSchedule[digit].push(isoDate(startDate));
+
+              if (
+                nextDate[digit] == undefined &&
+                (startDate.getTime() > today.getTime() || isoDate(startDate) == isoDate(tomorrow))
+              ) {
+                nextDate[digit] = isoDate(startDate);
+              }
             }
 
             digitsIterator = (digitsIterator + 1) % digits.length;
           }
 
-          startDate.setDate(startDate.getDate() + 1);
+          startDate.setDate(startDate.getDate() + 1)
         }
 
         return {
           schedule: schedule,
           digitSchedule: digitSchedule,
+          nextDate: nextDate,
         };
       }
 
@@ -141,6 +153,8 @@
       };
 
       var fmt = function (date) {
+        date = new Date(date);
+        date.setUTCHours(6);
         return date.toLocaleString("es", {
           weekday: "short",
           day: "2-digit",
@@ -161,36 +175,32 @@
         return week;
       };
 
-      var nextDate = function(date, schedule) {
-        const index = schedule.indexOf(isoDate(date));
-
-        if (index !== -1 && index != schedule.length - 1) {
-          return fmt(new Date(schedule[index + 1]));
-        }
-
-        return undefined;
-      }
-
-      const today = new Date();
+      const today = isoDate(new Date());
       const cars = generateSchedule(new Date(2021, 8, 6, 6)); // month is 0-based
       const bikes = generateSchedule(new Date(2021, 9, 4, 6));
-      const digit = cars.schedule[isoDate(today)];
-      const bikeDigit = bikes.schedule[isoDate(today)];
+      const digit = cars.schedule[today];
+      const bikeDigit = bikes.schedule[today];
 
-      let subtitle = "(solo carros)";
+      let subtitle = "(solo carros hasta octubre)";
       if (bikeDigit) {
         subtitle = "(carros y motos)";
       }
 
-      if (Holidays.has(isoDate(today))) {
+      if (Holidays.has(today)) {
         subtitle = "(hoy es festivo)";
         digit = "No hay pico y placa";
+      }
+
+
+      let table = "<tr align='center'><td align='center'>Número</td><td align='center'>Próxima Fecha</td><td align='center'>Número</td><td align='center'>Próxima Fecha</td></tr>"
+      for(let digit = 0; digit < 5; digit++) {
+        table += `<tr><td>${digit}</td><td>${fmt(cars.nextDate[digit])}</td><td>${digit + 5}</td><td>${fmt(cars.nextDate[digit + 5])}</td></tr>`
       }
 
       document.getElementById("day").innerHTML = fmt(today);
       document.getElementById("subtitle").innerHTML = subtitle;
       document.getElementById("plates").innerHTML = `${digit}`;
-      document.getElementById("next-date").innerHTML = `próxima fecha: ${nextDate(today, cars.digitSchedule[digit])}`;
+      document.getElementById("full").innerHTML = table;
     </script>
 
     <style>
@@ -269,6 +279,7 @@
       #full th {
         line-height: 2em;
         padding-left: 0.2em 0 0.2em 1.2em;
+        text-align: center;
       }
 
       #full tr:nth-child(even) {
@@ -323,6 +334,7 @@
         #full th {
           padding: 0;
           padding-left: 1.2em;
+          text-align: center;
         }
       }
 
@@ -339,24 +351,10 @@
         #full th {
           /* font-size: 1em; */
           padding-left: 1em;
+          text-align: center;
         }
       }
     </style>
-
-    <script type="text/javascript">
-      var _gauges = _gauges || [];
-      (function () {
-        var t = document.createElement("script");
-        t.type = "text/javascript";
-        t.async = true;
-        t.id = "gauges-tracker";
-        t.setAttribute("data-site-id", "582021524b2ffa060b015ff8");
-        t.setAttribute("data-track-path", "https://track.gaug.es/track.gif");
-        t.src = "https://d36ee2fcip1434.cloudfront.net/track.js";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(t, s);
-      })();
-    </script>
 
     <script>
       (function (i, s, o, g, r, a, m) {
