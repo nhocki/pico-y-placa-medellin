@@ -120,7 +120,6 @@
 
             let digit = digits[digitsIterator];
             if (!Holidays.has(isoDate(startDate))) {
-              console.log(`Setting date: ${isoDate(startDate)}=${digit}`);
               schedule[isoDate(startDate)] = digit;
               digitSchedule[digit] = digitSchedule[digit] || [];
               digitSchedule[digit].push(isoDate(startDate));
@@ -165,7 +164,6 @@
       };
 
       var nextDate = function(date, schedule) {
-        console.log(date, schedule);
         const index = schedule.indexOf(isoDate(date));
 
         if (index !== -1 && index != schedule.length - 1) {
@@ -184,6 +182,11 @@
       let subtitle = "(solo carros)";
       if (bikeDigit) {
         subtitle = "(carros y motos)";
+      }
+
+      if (Holidays.has(isoDate(today))) {
+        subtitle = "(hoy es festivo)";
+        digit = "No hay pico y placa";
       }
 
       document.getElementById("day").innerHTML = fmt(today);
