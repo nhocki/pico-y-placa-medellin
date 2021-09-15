@@ -114,10 +114,6 @@
 
         while (startDate.getTime() < lastDate.getTime()) {
           if (startDate.getDay() != 0 && startDate.getDay() != 6) {
-            if (Holidays.has(isoDate(startDate))) {
-              console.log(`Skipping ${isoDate(startDate)} for holidays`);
-            }
-
             let digit = digits[digitsIterator];
             if (!Holidays.has(isoDate(startDate))) {
               schedule[isoDate(startDate)] = digit;
