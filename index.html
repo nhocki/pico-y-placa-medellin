@@ -77,32 +77,34 @@
       };
 
       const Holidays = new Set();
-      Holidays.add(isoDate(new Date("18 Oct 2021")));
-      Holidays.add(isoDate(new Date("1 Nov 2021")));
-      Holidays.add(isoDate(new Date("15 Nov 2021")));
-      Holidays.add(isoDate(new Date("8 Dec 2021")));
-      Holidays.add(isoDate(new Date("25 Dec 2021")));
+      Holidays.add(isoDate(new Date(2021, 9, 18, 6)));
+      Holidays.add(isoDate(new Date(2021, 10, 1, 6)));
+      Holidays.add(isoDate(new Date(2021, 10, 15, 6)));
+      Holidays.add(isoDate(new Date(2021, 11, 8, 6)));
+      Holidays.add(isoDate(new Date(2021, 11, 25, 6)));
 
-      Holidays.add(isoDate(new Date("1 Jan 2022")));
-      Holidays.add(isoDate(new Date("10 Jan 2022")));
-      Holidays.add(isoDate(new Date("21 Mar 2022")));
-      Holidays.add(isoDate(new Date("14 Apr 2022")));
-      Holidays.add(isoDate(new Date("15 Apr 2022")));
-      Holidays.add(isoDate(new Date("1 May 2022")));
-      Holidays.add(isoDate(new Date("30 May 2022")));
-      Holidays.add(isoDate(new Date("20 Jun 2022")));
-      Holidays.add(isoDate(new Date("27 Jun 2022")));
-      Holidays.add(isoDate(new Date("4 Jul 2022")));
-      Holidays.add(isoDate(new Date("20 Jul 2022")));
-      Holidays.add(isoDate(new Date("7 Aug 2022")));
-      Holidays.add(isoDate(new Date("15 Aug 2022")));
-      Holidays.add(isoDate(new Date("17 Oct 2022")));
-      Holidays.add(isoDate(new Date("14 Nov 2022")));
-      Holidays.add(isoDate(new Date("8 Dec 2022")));
-      Holidays.add(isoDate(new Date("25 Dec 2022")));
+      Holidays.add(isoDate(new Date(2022, 0, 1, 6)));
+      Holidays.add(isoDate(new Date(2022, 0, 10, 6)));
+      Holidays.add(isoDate(new Date(2022, 2, 21, 6)));
+      Holidays.add(isoDate(new Date(2022, 3, 14, 6)));
+      Holidays.add(isoDate(new Date(2022, 3, 15, 6)));
+      Holidays.add(isoDate(new Date(2022, 4, 1, 6)));
+      Holidays.add(isoDate(new Date(2022, 4, 30, 6)));
+      Holidays.add(isoDate(new Date(2022, 5, 20, 6)));
+      Holidays.add(isoDate(new Date(2022, 5, 27, 6)));
+      Holidays.add(isoDate(new Date(2022, 6, 4, 6)));
+      Holidays.add(isoDate(new Date(2022, 6, 20, 6)));
+      Holidays.add(isoDate(new Date(2022, 7, 7, 6)));
+      Holidays.add(isoDate(new Date(2022, 7, 15, 6)));
+      Holidays.add(isoDate(new Date(2022, 9, 17, 6)));
+      Holidays.add(isoDate(new Date(2022, 10, 14, 6)));
+      Holidays.add(isoDate(new Date(2022, 11, 8, 6)));
+      Holidays.add(isoDate(new Date(2022, 11, 25, 6)));
+
 
       var generateSchedule = function(startDate) {
-        var lastDate = new Date("2022-02-01 05:00:00Z");
+        console.log(startDate);
+        var lastDate = new Date(2022, 1, 1, 6);
         var digitsIterator = 0
         var schedule = {};
         var digitSchedule = {};
@@ -116,6 +118,7 @@
           if (startDate.getDay() != 0 && startDate.getDay() != 6) {
             let digit = digits[digitsIterator];
             if (!Holidays.has(isoDate(startDate))) {
+              console.log(`Adding ${startDate} = ${digit}`);
               schedule[isoDate(startDate)] = digit;
               digitSchedule[digit] = digitSchedule[digit] || [];
               digitSchedule[digit].push(isoDate(startDate));
@@ -170,10 +173,12 @@
       }
 
       const today = new Date();
-      const cars = generateSchedule(new Date("2021-09-06 05:00:00Z"));
-      const bikes = generateSchedule(new Date("2021-10-04 05:00:00Z"));
+      const cars = generateSchedule(new Date(2021, 8, 6, 6)); // month is 0-based
+      const bikes = generateSchedule(new Date(2021, 9, 4, 6));
       const digit = cars.schedule[isoDate(today)];
       const bikeDigit = bikes.schedule[isoDate(today)];
+
+      console.log(cars);
 
       let subtitle = "(solo carros)";
       if (bikeDigit) {
