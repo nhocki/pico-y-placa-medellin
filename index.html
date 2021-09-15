@@ -103,7 +103,6 @@
 
 
       var generateSchedule = function(startDate) {
-        console.log(startDate);
         var lastDate = new Date(2022, 1, 1, 6);
         var digitsIterator = 0
         var schedule = {};
@@ -177,8 +176,6 @@
       const bikes = generateSchedule(new Date(2021, 9, 4, 6));
       const digit = cars.schedule[isoDate(today)];
       const bikeDigit = bikes.schedule[isoDate(today)];
-
-      console.log(cars);
 
       let subtitle = "(solo carros)";
       if (bikeDigit) {
