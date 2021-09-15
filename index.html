@@ -192,7 +192,7 @@
       }
 
 
-      let table = "<tr align='center'><td align='center'>Número</td><td align='center'>Próxima Fecha</td><td align='center'>Número</td><td align='center'>Próxima Fecha</td></tr>"
+      let table = "<tr class='header'><td>Número</td><td>Próxima Fecha</td><td>Número</td><td>Próxima Fecha</td></tr>"
       for(let digit = 0; digit < 5; digit++) {
         table += `<tr><td>${digit}</td><td>${fmt(cars.nextDate[digit])}</td><td>${digit + 5}</td><td>${fmt(cars.nextDate[digit + 5])}</td></tr>`
       }
@@ -242,6 +242,10 @@
         text-align: right;
         margin: 0 auto;
         border-collapse: collapse;
+      }
+
+      #full .header td {
+        font-weight: bold;
       }
 
       .small {
