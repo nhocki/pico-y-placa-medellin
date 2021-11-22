@@ -175,13 +175,10 @@
       const today = isoDate(new Date());
       const cars = generateSchedule(new Date(2021, 8, 6, 6)); // month is 0-based
       const bikes = generateSchedule(new Date(2021, 9, 4, 6));
-      const digit = cars.schedule[today];
       const bikeDigit = bikes.schedule[today];
-
-      let subtitle = "(solo carros hasta octubre)";
-      if (bikeDigit !== undefined) {
-        subtitle = "(carros y motos)";
-      }
+      
+      let digit = cars.schedule[today];
+      let subtitle = "(carros y motos)";
 
       if (digit === undefined) {
         digit = "No hay pico y placa";
