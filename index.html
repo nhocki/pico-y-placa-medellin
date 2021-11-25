@@ -178,10 +178,11 @@
       const bikeDigit = bikes.schedule[today];
       
       let digit = cars.schedule[today];
-      let subtitle = "(carros y motos)";
+      let subtitle = "De 5:00AM a 8:00PM para carros y motos";
 
       if (digit === undefined) {
         digit = "No hay pico y placa";
+        subtitle = "";
       }
 
       if (Holidays.has(today)) {
