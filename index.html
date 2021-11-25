@@ -74,32 +74,32 @@
       };
 
       const Holidays = new Set();
-      Holidays.add(isoDate(new Date(2021, 9, 18, 6)));
-      Holidays.add(isoDate(new Date(2021, 10, 1, 6)));
-      Holidays.add(isoDate(new Date(2021, 10, 15, 6)));
-      Holidays.add(isoDate(new Date(2021, 11, 8, 6)));
-      Holidays.add(isoDate(new Date(2021, 11, 25, 6)));
+      Holidays.add(isoDate(new Date(2021, 9, 18, 12)));
+      Holidays.add(isoDate(new Date(2021, 10, 1, 12)));
+      Holidays.add(isoDate(new Date(2021, 10, 15, 12)));
+      Holidays.add(isoDate(new Date(2021, 11, 8, 12)));
+      Holidays.add(isoDate(new Date(2021, 11, 25, 12)));
 
-      Holidays.add(isoDate(new Date(2022, 0, 1, 6)));
-      Holidays.add(isoDate(new Date(2022, 0, 10, 6)));
-      Holidays.add(isoDate(new Date(2022, 2, 21, 6)));
-      Holidays.add(isoDate(new Date(2022, 3, 14, 6)));
-      Holidays.add(isoDate(new Date(2022, 3, 15, 6)));
-      Holidays.add(isoDate(new Date(2022, 4, 1, 6)));
-      Holidays.add(isoDate(new Date(2022, 4, 30, 6)));
-      Holidays.add(isoDate(new Date(2022, 5, 20, 6)));
-      Holidays.add(isoDate(new Date(2022, 5, 27, 6)));
-      Holidays.add(isoDate(new Date(2022, 6, 4, 6)));
-      Holidays.add(isoDate(new Date(2022, 6, 20, 6)));
-      Holidays.add(isoDate(new Date(2022, 7, 7, 6)));
-      Holidays.add(isoDate(new Date(2022, 7, 15, 6)));
-      Holidays.add(isoDate(new Date(2022, 9, 17, 6)));
-      Holidays.add(isoDate(new Date(2022, 10, 14, 6)));
-      Holidays.add(isoDate(new Date(2022, 11, 8, 6)));
-      Holidays.add(isoDate(new Date(2022, 11, 25, 6)));
+      Holidays.add(isoDate(new Date(2022, 0, 1, 12)));
+      Holidays.add(isoDate(new Date(2022, 0, 10, 12)));
+      Holidays.add(isoDate(new Date(2022, 2, 21, 12)));
+      Holidays.add(isoDate(new Date(2022, 3, 14, 12)));
+      Holidays.add(isoDate(new Date(2022, 3, 15, 12)));
+      Holidays.add(isoDate(new Date(2022, 4, 1, 12)));
+      Holidays.add(isoDate(new Date(2022, 4, 30, 12)));
+      Holidays.add(isoDate(new Date(2022, 5, 20, 12)));
+      Holidays.add(isoDate(new Date(2022, 5, 27, 12)));
+      Holidays.add(isoDate(new Date(2022, 6, 4, 12)));
+      Holidays.add(isoDate(new Date(2022, 6, 20, 12)));
+      Holidays.add(isoDate(new Date(2022, 7, 7, 12)));
+      Holidays.add(isoDate(new Date(2022, 7, 15, 12)));
+      Holidays.add(isoDate(new Date(2022, 9, 17, 12)));
+      Holidays.add(isoDate(new Date(2022, 10, 14, 12)));
+      Holidays.add(isoDate(new Date(2022, 11, 8, 12)));
+      Holidays.add(isoDate(new Date(2022, 11, 25, 12)));
 
       var generateSchedule = function(startDate) {
-        var lastDate = new Date(2022, 1, 1, 6);
+        var lastDate = new Date(2022, 1, 1, 12);
         var digitsIterator = 0
         var schedule = {};
         var digitSchedule = {};
@@ -107,7 +107,7 @@
         const today = new Date();
         let tomorrow = new Date()
         tomorrow.setDate(today.getDate() + 1);
-        tomorrow.setUTCHours(6);
+        tomorrow.setUTCHours(12);
 
         var digits = [
           0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -151,7 +151,7 @@
 
       var fmt = function (date) {
         date = new Date(date);
-        date.setUTCHours(6);
+        date.setUTCHours(12);
         return date.toLocaleString("es", {
           weekday: "short",
           day: "2-digit",
@@ -173,8 +173,8 @@
       };
 
       const today = isoDate(new Date());
-      const cars = generateSchedule(new Date(2021, 8, 6, 6)); // month is 0-based
-      const bikes = generateSchedule(new Date(2021, 9, 4, 6));
+      const cars = generateSchedule(new Date(2021, 8, 6, 12)); // month is 0-based
+      const bikes = generateSchedule(new Date(2021, 9, 4, 12));
       const bikeDigit = bikes.schedule[today];
       
       let digit = cars.schedule[today];
