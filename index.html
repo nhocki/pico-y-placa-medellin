@@ -73,6 +73,16 @@
         return d.toISOString().split("T")[0];
       };
 
+      var fmt = function (date) {
+        date = new Date(date);
+        date.setUTCHours(12);
+        return date.toLocaleString("es", {
+          weekday: "short",
+          day: "2-digit",
+          month: "long",
+        });
+      };
+
       const Holidays = new Set();
       Holidays.add(isoDate(new Date(2021, 9, 18, 12)));
       Holidays.add(isoDate(new Date(2021, 10, 1, 12)));
@@ -98,8 +108,9 @@
       Holidays.add(isoDate(new Date(2022, 11, 8, 12)));
       Holidays.add(isoDate(new Date(2022, 11, 25, 12)));
 
+      // Deprecated
       var generateSchedule = function(startDate) {
-        var lastDate = new Date(2022, 1, 1, 12);
+        var lastDate = new Date(2022, 0, 17, 12); // Month is 0 based!
         var digitsIterator = 0
         var schedule = {};
         var digitSchedule = {};
@@ -149,16 +160,6 @@
         return new Date(cp.setDate(cp.getDate() - cp.getDay()));
       };
 
-      var fmt = function (date) {
-        date = new Date(date);
-        date.setUTCHours(12);
-        return date.toLocaleString("es", {
-          weekday: "short",
-          day: "2-digit",
-          month: "long",
-        });
-      };
-
       var buildWeek = function (today, weeks, extraSunday = true) {
         let sunday = beginningOfWeek(today);
         let week = [];
@@ -172,15 +173,44 @@
         return week;
       };
 
-      const today = isoDate(new Date());
-      const cars = generateSchedule(new Date(2021, 8, 6, 12)); // month is 0-based
-      const bikes = generateSchedule(new Date(2021, 9, 4, 12));
-      const bikeDigit = bikes.schedule[today];
-      
-      let digit = cars.schedule[today];
-      let subtitle = "De 5:00AM a 8:00PM para carros y motos";
+      const now = new Date();
+      const today = isoDate(now);
+      // const cars = generateSchedule(new Date(2021, 8, 6, 12)); // month is 0-based
 
-      if (digit === undefined) {
+      // DIGITS[wday] -> Placas con pico y placa en el día de la semana
+      const DIGITS = {
+        0: [], // Sunday
+        1: [6, 9], // Monday
+        2: [2, 3], // Tuesday
+        3: [4, 8], // Wednesday
+        4: [0, 7], // Thursday
+        5: [5, 1], // Friday
+        6: [], // Saturday
+      }
+
+      // DAYS[digit] -> día de la semana en la que tiene pico y plca
+      const DAYS = {
+        0: 4, // Jueves
+        1: 5, // Viernes
+        2: 2, // Martes
+        3: 2, // Martes
+        4: 3, // Miércoles
+        5: 5, // Viernes
+        6: 1, // Lunes
+        7: 4, // Jueves
+        8: 3, // Miércoles
+        9: 1, // Lunes
+      }
+
+      const getNextDayOfWeek = function(date, dayOfWeek) {
+        var resultDate = new Date(date.getTime());
+        resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay() - 1) % 7 +1);
+        return resultDate;
+      }
+
+      let digit = DIGITS[now.getDay()].join(" y ");
+      let subtitle = "De 5:00AM a 8:00PM para carros y motos";
+      if (digit === undefined || digit === "") {
         digit = "No hay pico y placa";
         subtitle = "";
       }
@@ -190,10 +220,9 @@
         digit = "No hay pico y placa";
       }
 
-
       let table = "<tr class='header'><td>Número</td><td>Próxima Fecha</td><td>Número</td><td>Próxima Fecha</td></tr>"
       for(let digit = 0; digit < 5; digit++) {
-        table += `<tr><td>${digit}</td><td>${fmt(cars.nextDate[digit])}</td><td>${digit + 5}</td><td>${fmt(cars.nextDate[digit + 5])}</td></tr>`
+        table += `<tr><td>${digit}</td><td>${fmt(getNextDayOfWeek(now, DAYS[digit]))}</td><td>${digit + 5}</td><td>${fmt(getNextDayOfWeek(now, DAYS[digit + 5]))}</td></tr>`
       }
 
       document.getElementById("day").innerHTML = fmt(today);
