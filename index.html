@@ -24,7 +24,7 @@
       property="og:description"
       content="Información diaria del Pico y Placa en Medellín"
     />
-    <meta content="http://www.picoyplaca.org" property="og:url" />
+    <meta content="https://www.picoyplaca.org" property="og:url" />
     <link
       rel="source"
       href="https://github.com/nhocki/pico-y-placa-medellin"
@@ -180,26 +180,26 @@
       // DIGITS[wday] -> Placas con pico y placa en el día de la semana
       const DIGITS = {
         0: [], // Sunday
-        1: [6, 9], // Monday
-        2: [2, 3], // Tuesday
-        3: [4, 8], // Wednesday
-        4: [0, 7], // Thursday
-        5: [5, 1], // Friday
+        1: [6, 3], // Monday
+        2: [9, 8], // Tuesday
+        3: [4, 5], // Wednesday
+        4: [7, 1], // Thursday
+        5: [2, 0], // Friday
         6: [], // Saturday
       }
 
       // DAYS[digit] -> día de la semana en la que tiene pico y plca
       const DAYS = {
-        0: 4, // Jueves
-        1: 5, // Viernes
-        2: 2, // Martes
-        3: 2, // Martes
+        0: 5, // Viernes
+        1: 4, // Jueves
+        2: 5, // Viernes
+        3: 1, // Lunes
         4: 3, // Miércoles
-        5: 5, // Viernes
+        5: 3, // Miércoles
         6: 1, // Lunes
         7: 4, // Jueves
-        8: 3, // Miércoles
-        9: 1, // Lunes
+        8: 2, // Martes
+        9: 2, // Martes
       }
 
       const getNextDayOfWeek = function(date, dayOfWeek) {
