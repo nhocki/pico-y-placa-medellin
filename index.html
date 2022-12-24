@@ -42,8 +42,8 @@
     </p>
 
     <section id="day" class="fit"></section>
-    <section id="subtitle" class="medium"></section>
     <section id="plates" class="fit"></section>
+    <section id="subtitle" class="medium"></section>
     <section id="next-date" class="medium"></section>
 
     <div id="wrap">
@@ -175,6 +175,7 @@
 
       const now = new Date();
       const today = isoDate(now);
+      const martes = new Date(2023, 1, 17, 12);
       // const cars = generateSchedule(new Date(2021, 8, 6, 12)); // month is 0-based
 
       // DIGITS[wday] -> Placas con pico y placa en el día de la semana
@@ -220,6 +221,11 @@
         digit = "No hay pico y placa";
       }
 
+      if (now < martes) {
+        subtitle = "(hasta el 17 de enero de 2023)";
+        digit = "No hay pico y placa";
+      }
+
       let table = "<tr class='header'><td>Número</td><td>Próxima Fecha</td><td>Número</td><td>Próxima Fecha</td></tr>"
       for(let digit = 0; digit < 5; digit++) {
         table += `<tr><td>${digit}</td><td>${fmt(getNextDayOfWeek(now, DAYS[digit]))}</td><td>${digit + 5}</td><td>${fmt(getNextDayOfWeek(now, DAYS[digit + 5]))}</td></tr>`
@@ -228,7 +234,7 @@
       document.getElementById("day").innerHTML = fmt(today);
       document.getElementById("subtitle").innerHTML = subtitle;
       document.getElementById("plates").innerHTML = `${digit}`;
-      document.getElementById("full").innerHTML = table;
+      //document.getElementById("full").innerHTML = table;
     </script>
 
     <style>
