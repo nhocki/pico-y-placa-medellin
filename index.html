@@ -75,7 +75,7 @@
 
       var fmt = function (date) {
         date = new Date(date);
-        date.setUTCHours(12);
+        date.setUTCHours(5);
         return date.toLocaleString("es", {
           weekday: "short",
           day: "2-digit",
@@ -108,76 +108,8 @@
       Holidays.add(isoDate(new Date(2022, 11, 8, 12)));
       Holidays.add(isoDate(new Date(2022, 11, 25, 12)));
 
-      // Deprecated
-      var generateSchedule = function(startDate) {
-        var lastDate = new Date(2022, 0, 17, 12); // Month is 0 based!
-        var digitsIterator = 0
-        var schedule = {};
-        var digitSchedule = {};
-        var nextDate = {};
-        const today = new Date();
-        let tomorrow = new Date()
-        tomorrow.setDate(today.getDate() + 1);
-        tomorrow.setUTCHours(12);
-
-        var digits = [
-          0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
-          0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
-        ];
-
-        while (startDate.getTime() < lastDate.getTime()) {
-          if (startDate.getDay() != 0 && startDate.getDay() != 6) {
-            let digit = digits[digitsIterator];
-            if (!Holidays.has(isoDate(startDate))) {
-              schedule[isoDate(startDate)] = digit;
-              digitSchedule[digit] = digitSchedule[digit] || [];
-              digitSchedule[digit].push(isoDate(startDate));
-
-              if (
-                nextDate[digit] == undefined &&
-                isoDate(startDate) != isoDate(today) &&
-                startDate.getTime() > today.getTime()
-              ) {
-                nextDate[digit] = isoDate(startDate);
-              }
-            }
-
-            digitsIterator = (digitsIterator + 1) % digits.length;
-          }
-
-          startDate.setDate(startDate.getDate() + 1)
-        }
-
-        return {
-          schedule: schedule,
-          digitSchedule: digitSchedule,
-          nextDate: nextDate,
-        };
-      }
-
-      var beginningOfWeek = function (d) {
-        let cp = new Date(d);
-        return new Date(cp.setDate(cp.getDate() - cp.getDay()));
-      };
-
-      var buildWeek = function (today, weeks, extraSunday = true) {
-        let sunday = beginningOfWeek(today);
-        let week = [];
-        let end = 7 * weeks + extraSunday;
-        for (let day = 0; day < end; day++) {
-          let cp = new Date(sunday);
-          var d = new Date(cp.setDate(cp.getDate() + day));
-          week.push(d);
-        }
-
-        return week;
-      };
-
-      const now = new Date();
-      const today = isoDate(now);
-      const martes = new Date(2023, 0, 17, 12);
-      const lunes = new Date(2023, 0, 16, 12);
-      // const cars = generateSchedule(new Date(2021, 8, 6, 12)); // month is 0-based
+      const today = isoDate(new Date());
+      const now = new Date(today + " 10:00:00Z");
 
       // DIGITS[wday] -> Placas con pico y placa en el día de la semana
       const DIGITS = {
@@ -206,9 +138,15 @@
 
       const getNextDayOfWeek = function(date, dayOfWeek) {
         var resultDate = new Date(date.getTime());
-        resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay() - 1) % 7 +1);
+        resultDate.setUTCDate(date.getUTCDate() + (7 + dayOfWeek - date.getUTCDay() - 1) % 7 +1);
         return resultDate;
       }
+
+//      const getNextDayOfWeek = function(date, dayOfWeek) {
+//        var resultDate = new Date(date.getTime());
+//        resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay() - 1) % 7 +1);
+//        return resultDate;
+//      }
 
       let digit = DIGITS[now.getDay()].join(" y ");
       let subtitle = "De 5:00AM a 8:00PM para carros y motos";
@@ -222,19 +160,12 @@
         digit = "No hay pico y placa";
       }
 
-      if (now < martes) {
-        subtitle = "(hasta el 17 de enero de 2023)";
-        digit = "No hay pico y placa";
-      }
-
       let table = "<tr class='header'><td>Número</td><td>Próxima Fecha</td><td>Número</td><td>Próxima Fecha</td></tr>"
       for(let digit = 0; digit < 5; digit++) {
         let nextDate = getNextDayOfWeek(now, DAYS[digit]);
         let nextPlus5 = getNextDayOfWeek(now, DAYS[digit + 5]);
-        if (now < martes) {
-          nextDate = getNextDayOfWeek(lunes, DAYS[digit]);
-          nextPlus5 = getNextDayOfWeek(lunes, DAYS[digit + 5]);
-        }
+        // console.log("FOR DIGIT", digit, DAYS[digit], nextDate, "---> ", fmt(nextDate));
+        // console.log("FOR DIGIT5", digit + 5, DAYS[digit + 5], nextPlus5, "---> ", fmt(nextPlus5));
         table += `<tr><td>${digit}</td><td>${fmt(nextDate)}</td><td>${digit + 5}</td><td>${fmt(nextPlus5)}</td></tr>`
       }
 
@@ -314,10 +245,6 @@
       #full {
         font-size: 1em;
         font-weight: 100;
-      }
-
-      #subtitle {
-        margin-top: -1em;
       }
 
       #full td,
