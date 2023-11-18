@@ -12,20 +12,108 @@
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
-    <title>Camisetas JSConf</title>
-    <meta content="Camisetas JSConf" property="og:site_name" />
-    <meta content="Camisetas JSConf" property="og:title" />
+    <title>JSConf Colombia T-Shirt Pre-Order Store</title>
+    <meta content="JSConf Colombia T-Shirt Pre-Order Store" property="og:site_name" />
+    <meta content="JSConf Colombia T-Shirt Pre-Order Store" property="og:title" />
     <meta content="website" property="og:type" />
+    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
   </head>
 
-  <body id="container">
-<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-<stripe-pricing-table pricing-table-id="prctbl_1ODcs5ECWgYNimTdhc4ZFibo"
-publishable-key="pk_live_51NCpeCECWgYNimTdtFDPOIq6UCPMJmp3z5foPLmZUWt18lN3dMPm2mcRSpKxr2jx0BGu04FjYDB26OzHcFOgTMv400ROSPUnec">
-</stripe-pricing-table>
+  <body>
+    <header style="text-align: center; padding: 2em 0 4em;">
+      <img src="jsconfco-logo-white.svg" alt="JSConf" />
+    </header>
+    <div class="wrapper"><div class="disclaimer">
+      <div class="header">
+        <h2>JSConf Colombia T-Shirt Pre-Order Store!</h2>
+      </div>
+      <p>Experience comfort with a cause in our super-soft JSConf Colombia t-shirts! Made from Next Level tri-blend fabric, each shirt promises a premium feel, perfect for everyday wear.</p>
 
-<stripe-pricing-table pricing-table-id="prctbl_1ODcueECWgYNimTdukLS3n37"
-publishable-key="pk_live_51NCpeCECWgYNimTdtFDPOIq6UCPMJmp3z5foPLmZUWt18lN3dMPm2mcRSpKxr2jx0BGu04FjYDB26OzHcFOgTMv400ROSPUnec">
-</stripe-pricing-table>
+      <div class="shirt-details">
+        <h2>Shirt Details:</h2>
+        <ul>
+          <li>Ultra-soft "Next Level tri-blend crew neck" design.</li>
+          <li>Lightweight at 4.2oz for maximum comfort.</li>
+          <li>Crafted from 50% polyester, 25% cotton, and 25% rayon for breathability and durability.</li>
+        </ul>
+      </div>
+
+      <div class="support-style">
+        <h2>Support & Style:</h2>
+        <p>By pre-ordering, you're not just getting a high-quality shirt; you're also supporting tech communities across Latin America. Proceeds go towards sponsoring tech events in the region.</p>
+        <ul>
+          <li>Worldwide shipping available.</li>
+          <li>We’ll keep you updated via email about your order.</li>
+        </ul>
+      </div>
+
+      <p>Thank you for supporting our tech community and spreading the spirit of JSConf Colombia!</p>
+      <p>#JSConfCO #TechForGood #ComfortMeetsCause</p>
+    </div></div>
+
+    <div id="container">
+      <h2 class="title">Men / Unisex</h2>
+      <stripe-pricing-table pricing-table-id="prctbl_1ODcs5ECWgYNimTdhc4ZFibo"
+      publishable-key="pk_live_51NCpeCECWgYNimTdtFDPOIq6UCPMJmp3z5foPLmZUWt18lN3dMPm2mcRSpKxr2jx0BGu04FjYDB26OzHcFOgTMv400ROSPUnec">
+      </stripe-pricing-table>
+
+      <h2 class="title">Women / Fitted</h2>
+      <stripe-pricing-table pricing-table-id="prctbl_1ODcueECWgYNimTdukLS3n37"
+      publishable-key="pk_live_51NCpeCECWgYNimTdtFDPOIq6UCPMJmp3z5foPLmZUWt18lN3dMPm2mcRSpKxr2jx0BGu04FjYDB26OzHcFOgTMv400ROSPUnec">
+    </stripe-pricing-table>
+    </div>
+
+    <style>
+      body {
+        background: #012CF8;
+        color: black;
+        font-family: 'Chakra Petch', sans-serif;
+      }
+
+      h2 {
+        font-size: 3rem;
+        line-height: 1;
+        padding: 0;
+        margin: 0;
+      }
+
+      #container {
+        background: #F8EEDF;
+        max-width: 95%;
+        margin: 0 auto;
+        border-radius: 0.5em;
+        padding: 0.5em 0;
+      }
+
+      .wrapper {
+        margin: 0 -1em;
+        background-color: #FFB632;
+        padding: 4em 1.5em 2em;
+        margin-bottom: 4em;
+      }
+
+      .disclaimer {
+        width: 100%;
+        margin: 0 auto;
+        color: black;
+      }
+
+      .title {
+        margin-left: 0.5em;
+        font-size: 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .disclaimer {
+          width: 60%;
+        }
+
+        .title {
+          margin-left: 1em;
+          font-size: 3rem;
+        }
+      }
+    </style>
   </body>
 </html>
