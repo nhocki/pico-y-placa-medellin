@@ -84,30 +84,24 @@
       };
 
       const Holidays = new Set();
-      Holidays.add(isoDate(new Date(2021, 9, 18, 12)));
-      Holidays.add(isoDate(new Date(2021, 10, 1, 12)));
-      Holidays.add(isoDate(new Date(2021, 10, 15, 12)));
-      Holidays.add(isoDate(new Date(2021, 11, 8, 12)));
-      Holidays.add(isoDate(new Date(2021, 11, 25, 12)));
-
-      Holidays.add(isoDate(new Date(2022, 0, 1, 12)));
-      Holidays.add(isoDate(new Date(2022, 0, 10, 12)));
-      Holidays.add(isoDate(new Date(2022, 2, 21, 12)));
-      Holidays.add(isoDate(new Date(2022, 3, 14, 12)));
-      Holidays.add(isoDate(new Date(2022, 3, 15, 12)));
-      Holidays.add(isoDate(new Date(2022, 4, 1, 12)));
-      Holidays.add(isoDate(new Date(2022, 4, 30, 12)));
-      Holidays.add(isoDate(new Date(2022, 5, 20, 12)));
-      Holidays.add(isoDate(new Date(2022, 5, 27, 12)));
-      Holidays.add(isoDate(new Date(2023, 6, 3, 12)));
-      Holidays.add(isoDate(new Date(2023, 6, 20, 12)));
-      Holidays.add(isoDate(new Date(2023, 7, 7, 12)));
-      Holidays.add(isoDate(new Date(2023, 7, 21, 12)));
-      Holidays.add(isoDate(new Date(2023, 9, 16, 12)));
-      Holidays.add(isoDate(new Date(2023, 10, 6, 12)));
-      Holidays.add(isoDate(new Date(2023, 10, 13, 12)));
-      Holidays.add(isoDate(new Date(2023, 11, 8, 12)));
-      Holidays.add(isoDate(new Date(2023, 11, 25, 12)));
+      Holidays.add(isoDate(new Date(2024, 0, 1)));
+      Holidays.add(isoDate(new Date(2024, 0, 8)));
+      Holidays.add(isoDate(new Date(2024, 2, 25)));
+      Holidays.add(isoDate(new Date(2024, 2, 28)));
+      Holidays.add(isoDate(new Date(2024, 2, 29)));
+      Holidays.add(isoDate(new Date(2024, 4, 1)));
+      Holidays.add(isoDate(new Date(2024, 4, 13)));
+      Holidays.add(isoDate(new Date(2024, 5, 3)));
+      Holidays.add(isoDate(new Date(2024, 5, 10)));
+      Holidays.add(isoDate(new Date(2024, 6, 1)));
+      Holidays.add(isoDate(new Date(2024, 6, 20)));
+      Holidays.add(isoDate(new Date(2024, 7, 7)));
+      Holidays.add(isoDate(new Date(2024, 7, 19)));
+      Holidays.add(isoDate(new Date(2024, 9, 14)));
+      Holidays.add(isoDate(new Date(2024, 10, 4)));
+      Holidays.add(isoDate(new Date(2024, 10, 11)));
+      Holidays.add(isoDate(new Date(2024, 11, 8)));
+      Holidays.add(isoDate(new Date(2024, 11, 25)));
 
       const today = isoDate(new Date());
       const now = new Date(today + " 10:00:00Z");
@@ -115,39 +109,41 @@
       // DIGITS[wday] -> Placas con pico y placa en el día de la semana
       const DIGITS = {
         0: [], // Sunday
-        1: [7, 1], // Monday
-        2: [3, 0], // Tuesday
-        3: [4, 6], // Wednesday
-        4: [5, 9], // Thursday
-        5: [8, 2], // Friday
+        1: [5, 8], // Monday
+        2: [1, 4], // Tuesday
+        3: [2, 0], // Wednesday
+        4: [3, 6], // Thursday
+        5: [7, 9], // Friday
         6: [], // Saturday
-      }
+      };
 
       // DAYS[digit] -> día de la semana en la que tiene pico y plca
       const DAYS = {
-        0: 2, // Martes
-        1: 1, // Lunes
-        2: 5, // Viernes
-        3: 2, // Martes
-        4: 3, // Miércoles
-        5: 4, // Jueves
-        6: 3, // Miércoles
-        7: 1, // Lunes
-        8: 5, // Viernes
-        9: 4, // Jueves
-      }
+        0: 3, // Miércoles
+        1: 2, // Martes
+        2: 3, // Miércoles
+        3: 4, // Jueves
+        4: 2, // Martes
+        5: 1, // Lunes
+        6: 4, // Jueves
+        7: 5, // Viernes
+        8: 1, // Lunes
+        9: 5, // Viernes
+      };
 
-      const getNextDayOfWeek = function(date, dayOfWeek) {
+      const getNextDayOfWeek = function (date, dayOfWeek) {
         var resultDate = new Date(date.getTime());
-        resultDate.setUTCDate(date.getUTCDate() + (7 + dayOfWeek - date.getUTCDay() - 1) % 7 +1);
+        resultDate.setUTCDate(
+          date.getUTCDate() + ((7 + dayOfWeek - date.getUTCDay() - 1) % 7) + 1
+        );
         return resultDate;
-      }
+      };
 
-//      const getNextDayOfWeek = function(date, dayOfWeek) {
-//        var resultDate = new Date(date.getTime());
-//        resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay() - 1) % 7 +1);
-//        return resultDate;
-//      }
+      //      const getNextDayOfWeek = function(date, dayOfWeek) {
+      //        var resultDate = new Date(date.getTime());
+      //        resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay() - 1) % 7 +1);
+      //        return resultDate;
+      //      }
 
       let digit = DIGITS[now.getDay()].join(" y ");
       let subtitle = "De 5:00AM a 8:00PM para carros y motos";
@@ -161,13 +157,16 @@
         digit = "No hay pico y placa";
       }
 
-      let table = "<tr class='header'><td>Número</td><td>Próxima Fecha</td><td>Número</td><td>Próxima Fecha</td></tr>"
-      for(let digit = 0; digit < 5; digit++) {
+      let table =
+        "<tr class='header'><td>Número</td><td>Próxima Fecha</td><td>Número</td><td>Próxima Fecha</td></tr>";
+      for (let digit = 0; digit < 5; digit++) {
         let nextDate = getNextDayOfWeek(now, DAYS[digit]);
         let nextPlus5 = getNextDayOfWeek(now, DAYS[digit + 5]);
         // console.log("FOR DIGIT", digit, DAYS[digit], nextDate, "---> ", fmt(nextDate));
         // console.log("FOR DIGIT5", digit + 5, DAYS[digit + 5], nextPlus5, "---> ", fmt(nextPlus5));
-        table += `<tr><td>${digit}</td><td>${fmt(nextDate)}</td><td>${digit + 5}</td><td>${fmt(nextPlus5)}</td></tr>`
+        table += `<tr><td>${digit}</td><td>${fmt(nextDate)}</td><td>${
+          digit + 5
+        }</td><td>${fmt(nextPlus5)}</td></tr>`;
       }
 
       document.getElementById("day").innerHTML = fmt(today);
@@ -230,7 +229,7 @@
 
       .medium {
         display: block;
-        font-size: 1.20em;
+        font-size: 1.2em;
         margin: 2em auto;
         text-align: center;
       }
