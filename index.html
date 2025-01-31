@@ -103,32 +103,50 @@
       Holidays.add(isoDate(new Date(2024, 11, 8)));
       Holidays.add(isoDate(new Date(2024, 11, 25)));
 
+      Holidays.add(isoDate(new Date(2025, 0, 1)));  // Año nuevo
+      Holidays.add(isoDate(new Date(2025, 0, 6)));  // Día de los Reyes Magos
+      Holidays.add(isoDate(new Date(2025, 2, 24))); // Día de San José
+      Holidays.add(isoDate(new Date(2025, 3, 17))); // Jueves Santo
+      Holidays.add(isoDate(new Date(2025, 3, 18))); // Viernes Santo
+      Holidays.add(isoDate(new Date(2025, 4, 1)));  // Día del Trabajo
+      Holidays.add(isoDate(new Date(2025, 5, 2)));  // Día de la Ascensión
+      Holidays.add(isoDate(new Date(2025, 5, 23))); // Corpus Christi
+      Holidays.add(isoDate(new Date(2025, 5, 30))); // Día de San Pedro y San Pablo
+      Holidays.add(isoDate(new Date(2025, 6, 20))); // Día de la Independencia Colombia
+      Holidays.add(isoDate(new Date(2025, 7, 7)));  // Batalla de Boyacá (Independencia de Colombia)
+      Holidays.add(isoDate(new Date(2025, 7, 18))); // Asunción de la Virgen
+      Holidays.add(isoDate(new Date(2025, 9, 13))); // Día de la Raza
+      Holidays.add(isoDate(new Date(2025, 10, 3))); // Día de todos los Santos
+      Holidays.add(isoDate(new Date(2025, 10, 17))); // Día de la Independencia de Cartagena
+      Holidays.add(isoDate(new Date(2025, 11, 8)));  // Día de la Inmaculada Concepción
+      Holidays.add(isoDate(new Date(2025, 11, 25))); // Navidad
+
       const today = isoDate(new Date());
       const now = new Date(today + " 10:00:00Z");
 
       // DIGITS[wday] -> Placas con pico y placa en el día de la semana
       const DIGITS = {
         0: [], // Sunday
-        1: [0, 2], // Monday
-        2: [6, 9], // Tuesday
-        3: [3, 7], // Wednesday
-        4: [4, 8], // Thursday
-        5: [1, 5], // Friday
+        1: [3, 4], // Monday
+        2: [2, 8], // Tuesday
+        3: [5, 9], // Wednesday
+        4: [1, 7], // Thursday
+        5: [0, 6], // Friday
         6: [], // Saturday
       };
 
       // DAYS[digit] -> día de la semana en la que tiene pico y plca
       const DAYS = {
-        0: 1, // Lunes
-        1: 5, // Viernes
-        2: 1, // Lunes
-        3: 3, // Miércoles
-        4: 4, // Jueves
-        5: 5, // Viernes
-        6: 2, // Martes
-        7: 3, // Miércoles
-        8: 4, // Jueves
-        9: 2, // Martes
+        0: 5, // Friday
+        1: 4, // Thursday
+        2: 2, // Tuesday
+        3: 1, // Monday
+        4: 1, // Monday
+        5: 3, // Wednesday
+        6: 5, // Friday
+        7: 4, // Thursday
+        8: 2, // Tuesday
+        9: 3, //  Wednesday
       };
 
       const getNextDayOfWeek = function (date, dayOfWeek) {
