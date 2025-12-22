@@ -103,6 +103,54 @@
       Holidays.add(isoDate(new Date(2025, 11, 8))); // Día de la Inmaculada Concepción
       Holidays.add(isoDate(new Date(2025, 11, 25))); // Navidad
 
+      // 2026 holidays
+      Holidays.add(isoDate(new Date(2026, 0, 1))); // Año Nuevo
+      Holidays.add(isoDate(new Date(2026, 0, 12))); // Reyes Magos
+      Holidays.add(isoDate(new Date(2026, 2, 23))); // Día de San José
+      Holidays.add(isoDate(new Date(2026, 3, 2))); // Jueves Santo
+      Holidays.add(isoDate(new Date(2026, 3, 3))); // Viernes Santo
+      Holidays.add(isoDate(new Date(2026, 4, 1))); // Día del Trabajo
+      Holidays.add(isoDate(new Date(2026, 4, 18))); // Ascensión de Jesús
+      Holidays.add(isoDate(new Date(2026, 5, 8))); // Corpus Christi
+      Holidays.add(isoDate(new Date(2026, 5, 15))); // Sagrado Corazón de Jesús
+      Holidays.add(isoDate(new Date(2026, 5, 29))); // San Pedro y San Pablo
+      Holidays.add(isoDate(new Date(2026, 6, 20))); // Día de la Independencia
+      Holidays.add(isoDate(new Date(2026, 7, 7))); // Batalla de Boyacá
+      Holidays.add(isoDate(new Date(2026, 7, 17))); // Asunción de la Virgen
+      Holidays.add(isoDate(new Date(2026, 9, 12))); // Día de la Raza
+      Holidays.add(isoDate(new Date(2026, 10, 2))); // Todos los Santos
+      Holidays.add(isoDate(new Date(2026, 10, 16))); // Independencia de Cartagena
+      Holidays.add(isoDate(new Date(2026, 11, 8))); // Inmaculada Concepción
+      Holidays.add(isoDate(new Date(2026, 11, 25))); // Navidad
+
+      const SuspendedDates = new Set();
+      // Pico y placa suspendido: Dec 23, 2025 to Jan 16, 2026
+      SuspendedDates.add(isoDate(new Date(2025, 11, 23)));
+      SuspendedDates.add(isoDate(new Date(2025, 11, 24)));
+      SuspendedDates.add(isoDate(new Date(2025, 11, 25)));
+      SuspendedDates.add(isoDate(new Date(2025, 11, 26)));
+      SuspendedDates.add(isoDate(new Date(2025, 11, 27)));
+      SuspendedDates.add(isoDate(new Date(2025, 11, 28)));
+      SuspendedDates.add(isoDate(new Date(2025, 11, 29)));
+      SuspendedDates.add(isoDate(new Date(2025, 11, 30)));
+      SuspendedDates.add(isoDate(new Date(2025, 11, 31)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 1)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 2)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 3)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 4)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 5)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 6)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 7)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 8)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 9)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 10)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 11)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 12)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 13)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 14)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 15)));
+      SuspendedDates.add(isoDate(new Date(2026, 0, 16)));
+
       const today = isoDate(new Date());
       const now = new Date(today + " 10:00:00Z");
 
@@ -152,7 +200,10 @@
         subtitle = "";
       }
 
-      if (Holidays.has(today)) {
+      if (SuspendedDates.has(today)) {
+        subtitle = "Pico y placa suspendido temporalmente";
+        digit = "No hay pico y placa";
+      } else if (Holidays.has(today)) {
         subtitle = "(hoy es festivo)";
         digit = "No hay pico y placa";
       }
