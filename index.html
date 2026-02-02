@@ -157,26 +157,26 @@
       // DIGITS[wday] -> Placas con pico y placa en el día de la semana
       const DIGITS = {
         0: [], // Sunday
-        1: [6, 9], // Monday
-        2: [5, 7], // Tuesday
-        3: [1, 8], // Wednesday
-        4: [0, 2], // Thursday
-        5: [3, 4], // Friday
+        1: [1, 7], // Monday
+        2: [0, 3], // Tuesday
+        3: [4, 6], // Wednesday
+        4: [5, 9], // Thursday
+        5: [2, 8], // Friday
         6: [], // Saturday
       };
 
       // DAYS[digit] -> día de la semana en la que tiene pico y plca
       const DAYS = {
-        0: 4, // Friday
-        1: 3, // Thursday
-        2: 4, // Tuesday
-        3: 5, // Monday
-        4: 5, // Monday
-        5: 2, // Wednesday
-        6: 1, // Friday
-        7: 2, // Thursday
-        8: 3, // Tuesday
-        9: 1, //  Wednesday
+        0: 2, // Tuesday
+        1: 1, // Monday
+        2: 5, // Friday
+        3: 2, // Tuesday
+        4: 3, // Wednesday
+        5: 4, // Thursday
+        6: 3, // Wednesday
+        7: 1, // Monday
+        8: 5, // Friday
+        9: 4, // Thursday
       };
 
       const getNextDayOfWeek = function (date, dayOfWeek) {
