@@ -154,8 +154,8 @@
       const today = isoDate(new Date());
       const now = new Date(today + " 10:00:00Z");
 
-      // DIGITS[wday] -> Placas con pico y placa en el día de la semana
-      const DIGITS = {
+      // Rotación vigente hasta el 2 de agosto de 2026
+      const OLD_DIGITS = {
         0: [], // Sunday
         1: [1, 7], // Monday
         2: [0, 3], // Tuesday
@@ -165,8 +165,7 @@
         6: [], // Saturday
       };
 
-      // DAYS[digit] -> día de la semana en la que tiene pico y plca
-      const DAYS = {
+      const OLD_DAYS = {
         0: 2, // Tuesday
         1: 1, // Monday
         2: 5, // Friday
@@ -178,6 +177,34 @@
         8: 5, // Friday
         9: 4, // Thursday
       };
+
+      // Nueva rotación: segundo semestre 2026 (desde el lunes 3 de agosto)
+      const NEW_DIGITS = {
+        0: [], // Sunday
+        1: [5, 8], // Monday
+        2: [1, 4], // Tuesday
+        3: [0, 2], // Wednesday
+        4: [3, 6], // Thursday
+        5: [7, 9], // Friday
+        6: [], // Saturday
+      };
+
+      const NEW_DAYS = {
+        0: 3, // Wednesday
+        1: 2, // Tuesday
+        2: 3, // Wednesday
+        3: 4, // Thursday
+        4: 2, // Tuesday
+        5: 1, // Monday
+        6: 4, // Thursday
+        7: 5, // Friday
+        8: 1, // Monday
+        9: 5, // Friday
+      };
+
+      const ROTATION_CHANGE = "2026-08-03";
+      const DIGITS = today >= ROTATION_CHANGE ? NEW_DIGITS : OLD_DIGITS;
+      const DAYS = today >= ROTATION_CHANGE ? NEW_DAYS : OLD_DAYS;
 
       const getNextDayOfWeek = function (date, dayOfWeek) {
         var resultDate = new Date(date.getTime());
